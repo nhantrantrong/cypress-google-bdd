@@ -1,0 +1,34 @@
+{
+  "name": "cypress-google-bdd",
+  "version": "1.0.0",
+  "description": "This is sample repository to validate the Google Search homepage using Behaviour Driven Approach",
+  "main": "index.js",
+  "scripts": {
+    "reinstall": "rm -rf node_modules && rm -rf package-lock.json && npm install",
+    "allure:clean": "rm -rf report/allure-report && rm -rf report/allure-results",
+    "allure:generate": "allure generate report/allure-results --clean -o report/allure-report",
+    "allure:open": "allure open report/allure-report",
+    "allure:report": "npm run allure:generate && npm run allure:open",
+    "cy:open": "cypress open",
+    "cy:test": "npm run allure:clean && cypress run --spec cypress/e2e/features/*.feature"
+  },
+  "cypress-cucumber-preprocessor": {
+    "commonPath": "cypress/e2e/step-definitions/common",
+    "stepDefinitions": "cypress/e2e/step-definitions"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nhantrantrong/cypress-google-bdd.git"
+  },
+  "author": "nhantrantrong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nhantrantrong/cypress-google-bdd/issues"
+  },
+  "homepage": "https://github.com/nhantrantrong/cypress-google-bdd#readme",
+  "dependencies": {
+    "cypress": "^11.1.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "@shelex/cypress-allure-plugin": "^2.34.0"
+  }
+}
